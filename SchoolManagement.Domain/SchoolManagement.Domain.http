@@ -1,0 +1,6 @@
+@SchoolManagement.Domain_HostAddress = http://localhost:5008
+
+GET {{SchoolManagement.Domain_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

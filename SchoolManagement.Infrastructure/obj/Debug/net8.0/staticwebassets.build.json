@@ -1,0 +1,23 @@
+{
+  "Version": 1,
+  "Hash": "R4DdlMLrIa+lfavtuYEvhy9F+iN6HIZdyU/YnJCAVYo=",
+  "Source": "SchoolManagement.Infrastructure",
+  "BasePath": "_content/SchoolManagement.Infrastructure",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "C:\\Users\\Livi3\\Desktop\\Proyecto\\Gestion-Escolar\\Backend\\SchoolManagement.Domain\\SchoolManagement.Domain.csproj",
+      "Version": 2,
+      "Source": "SchoolManagement.Domain",
+      "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "",
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework"
+    }
+  ],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

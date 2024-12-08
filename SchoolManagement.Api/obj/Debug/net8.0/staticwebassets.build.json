@@ -1,0 +1,34 @@
+{
+  "Version": 1,
+  "Hash": "4cIxznhRJlcTyPRZ3ZcSCHGoVnGiT+qoUoj1lUU9RsM=",
+  "Source": "SchoolManagement.Api",
+  "BasePath": "_content/SchoolManagement.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "C:\\Users\\Livi3\\Desktop\\Proyecto\\Gestion-Escolar\\Backend\\SchoolManagement.Domain\\SchoolManagement.Domain.csproj",
+      "Version": 2,
+      "Source": "SchoolManagement.Domain",
+      "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "",
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework"
+    },
+    {
+      "Identity": "C:\\Users\\Livi3\\Desktop\\Proyecto\\Gestion-Escolar\\Backend\\SchoolManagement.Infrastructure\\SchoolManagement.Infrastructure.csproj",
+      "Version": 2,
+      "Source": "SchoolManagement.Infrastructure",
+      "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "",
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework"
+    }
+  ],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
