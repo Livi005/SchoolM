@@ -1,0 +1,84 @@
+
+<div class="content">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <button class="custom-button" (click)="openAddClassroomModal()">Agregar Aula</button>
+            <h4 class="card-title">Aulas</h4>
+          </div>
+  
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table">
+                <thead class="text-primary">
+                  <tr>
+                    <th>Ubicación</th>
+                    <th>Acciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let classroom of classrooms">
+                    <td>
+                      <ng-container *ngIf="editingClassroom?.idClassR === classroom.idClassR; else viewModeLocation">
+                        <input [(ngModel)]="editingClassroom.location" class="form-control" />
+                      </ng-container>
+                      <ng-template #viewModeLocation>{{ classroom.location }}</ng-template>
+                    </td>
+                    <td>
+                      <ng-container *ngIf="editingClassroom?.idClassR === classroom.idClassR; else actionMode">
+                        <button class="custom-button" (click)="saveClassroom()">Guardar</button>
+                        <button class="custom-button" (click)="cancelEdit()">Cancelar</button>
+                      </ng-container>
+                      <ng-template #actionMode>
+                        <button class="custom-button" (click)="editClassroom(classroom)">Editar</button>
+                        <button class="custom-button" (click)="deleteClassroom(classroom.idClassR)">Eliminar</button>
+                      </ng-template>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Modal para agregar aula -->
+    <div
+      class="modal"
+      tabindex="-1"
+      [ngClass]="{ 'show': isAddClassroomModalOpen }"
+      style="display: block;"
+      *ngIf="isAddClassroomModalOpen"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Agregar Aula</h5>
+            <button type="button" class="close" (click)="closeAddClassroomModal()">
+              <span>&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form (ngSubmit)="addClassroom()">
+              <div class="form-group">
+                <label for="classroomLocation">Ubicación:</label>
+                <input
+                  type="text"
+                  id="classroomLocation"
+                  class="form-control"
+                  [(ngModel)]="newClassroom.location"
+                  name="location"
+                  required
+                />
+              </div>
+              <button type="submit" class="custom-button">Guardar</button>
+              <button type="button" class="custom-button" (click)="closeAddClassroomModal()">Cancelar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

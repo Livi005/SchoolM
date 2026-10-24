@@ -1,0 +1,147 @@
+<div class="content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header d-flex justify-content-between">
+          <h4 class="card-title">
+            {{ viewMode === 'assign' ? 'Gestión de Estudiantes' : 'Notas Otorgadas' }}
+          </h4>
+          <button
+            class="custom-button"
+            (click)="toggleViewMode()"
+          >
+            {{ viewMode === 'assign' ? 'Ver Notas Otorgadas' : 'Asignar Notas' }}
+          </button>
+        </div>
+        <div class="card-body">
+
+          <!-- Vista para Asignar Notas -->
+          <div *ngIf="viewMode === 'assign'">
+            <!-- Barra de búsqueda -->
+            <div class="search-bar mb-3 d-flex align-items-center">
+              <input
+                type="text"
+                id="globalSearch"
+                class="form-control"
+                placeholder="Buscar estudiante"
+                [(ngModel)]="globalSearchQuery"
+                (input)="updateDisplayedStudents()"
+              />
+              <i class="fa fa-search ml-2"></i>
+            </div>
+
+            <!-- Filtro por asignatura -->
+            <div class="filter-section mb-3">
+              <label for="subjectFilter">Asignatura:</label>
+              <select
+                id="subjectFilter"
+                class="form-select"
+                [(ngModel)]="selectedSubject"
+                (change)="onSubjectChange($event.target.value)"
+              >
+                <option value="" disabled [selected]="!subjects.length">
+                  {{ subjects.length ? 'Seleccione una asignatura' : 'No hay asignaturas disponibles' }}
+                </option>
+                <option *ngFor="let subject of subjects" [value]="subject.idSub">
+                  {{ subject.nameSub }}
+                </option>
+              </select>
+            </div>
+
+            <!-- Tabla de estudiantes -->
+            <div class="table-responsive">
+              <table class="table tablesorter">
+                <thead class="text-primary">
+                  <tr>
+                    <th>Nombre</th>
+                    <th>Edad</th>
+                    <th>Actividad</th>
+                    <th>Curso</th>
+                    <th>Nota</th>
+                    <th>Acción</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let student of displayedStudents; let i = index">
+                    <td>{{ student.nameStud }}</td>
+                    <td>{{ student.age }}</td>
+                    <td>{{ student.eActivity ? 'Activo' : 'Inactivo' }}</td>
+                    <td>{{ student.course?.courseName || 'Sin curso' }}</td>
+                    <td>
+                      <input
+                        type="number"
+                        class="form-control"
+                        [(ngModel)]="student.grade"
+                        [ngClass]="{ 'input-editable': editMode[i], 'input-readonly': !editMode[i] }"
+                        [readonly]="!editMode[i]"
+                        step="0.1"
+                        min="0"
+                        max="10"
+                      />
+                    </td>
+                    <td>
+                      <button
+                        class="custom-button"
+                        (click)="editMode[i] ? assignGrade(student, i) : toggleEditMode(i)"
+                      >
+                        {{ editMode[i] ? 'Guardar' : 'AsignarNota' }}
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Vista para Listar Notas -->
+          <div *ngIf="viewMode === 'list'">
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table">
+                  <thead class="text-primary">
+                    <tr>
+                      <th>Nombre del Estudiante</th>
+                      <th>Nombre del Profesor</th>
+                      <th>Asignatura</th>
+                      <th>Nota</th>
+                      <th>Acción</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let note of notes; let i = index">
+                      <td>{{ note.studentName }}</td>
+                      <td>{{ note.professorName }}</td>
+                      <td>{{ note.subjectName }}</td>
+                      <td>
+                        <input
+                          type="number"
+                          class="form-control"
+                          [(ngModel)]="note.studentGrades"
+                          [readonly]="!(role === 'Secretary' || role === 'SuperAdmin') || !editMode[i]"
+                          min="0"
+                          max="10"
+                          step="0.1"
+                        />
+                      </td>
+                      <td>
+                        <button
+                          class="custom-button"
+                          [disabled]="!(role === 'Secretary' || role === 'SuperAdmin')"
+                          (click)="editMode[i] ? updateStudentNote(note, i) : toggleEditMode(i)"
+                        >
+                          {{ editMode[i] ? 'Guardar' : 'Editar' }}
+                        </button>
+                      </td>
+                      
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

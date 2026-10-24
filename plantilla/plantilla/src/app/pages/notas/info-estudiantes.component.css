@@ -1,0 +1,74 @@
+
+.custom-button {
+    background-color: #32325d; /* Color de fondo */
+    color: white; /* Color del texto */
+    border: 1px solid #1e1f35; /* Borde */
+    border-radius: 5px; /* Bordes redondeados */
+    padding: 8px 16px; /* Espaciado interno */
+    font-size: 14px; /* Tamaño de la fuente */
+    cursor: pointer; /* Cambia el cursor al pasar el mouse */
+    transition: all 0.3s ease; /* Transición suave para efectos */
+  }
+  
+  .custom-button:hover {
+    background-color: #43457a; /* Color más claro al pasar el mouse */
+    border-color: #2e2f50; /* Color del borde al pasar el mouse */
+  }
+  
+  .custom-button:active {
+    background-color: #212345; /* Color más oscuro al presionar */
+    transform: scale(0.98); /* Pequeño efecto de presión */
+  }
+  /* Estilo para los inputs en modo edición */
+.input-editable {
+    background-color: #b5bce3; /* Color claro que combina con #32325d */
+    color: #32325d;           /* Texto oscuro para contraste */
+    border: 1px solid #c2c6d6; /* Borde sutil */
+    padding: 5px;
+    border-radius: 4px;       /* Bordes redondeados */
+    transition: background-color 0.3s, color 0.3s; /* Transición suave */
+  }
+  
+  /* Estilo para campos en modo solo lectura */
+  .input-readonly {
+    background-color: transparent; /* Sin fondo */
+    color: white;                  /* Texto blanco para visibilidad */
+    border: none;                  /* Sin borde */
+  }
+  
+  /* Transición suave al cambiar entre modos */
+  .input-editable:focus {
+    outline: none; /* Sin borde adicional al enfocar */
+    box-shadow: 0 0 5px rgba(50, 50, 93, 0.4); /* Efecto visual en foco */
+  }
+
+  .filter-section {
+  margin-bottom: 30px; /* Espacio adicional debajo del filtro */
+  display: flex;
+  gap: 20px; /* Espaciado entre los elementos del filtro */
+  align-items: center; /* Alinea verticalmente los elementos */
+  padding: 15px; /* Espaciado interno */
+  border-radius: 8px; /* Bordes redondeados */
+  }
+  
+  .filter-section label {
+    font-weight: bold;
+    margin-right: 10px; /* Espacio entre el label y el select */
+  }
+  
+  .filter-section .form-select {
+    width: 220px; /* Aumenta el ancho de los selectores */
+    padding: 8px;
+    border-radius: 5px; /* Bordes redondeados */
+    border: 1px solid #ccc; /* Borde sutil */
+    font-size: 14px;
+  }
+  
+  .filter-section .form-select:focus {
+    outline: none;
+    border-color: #32325d; /* Color del borde al seleccionar */
+    box-shadow: 0 0 5px rgba(50, 50, 93, 0.5);
+  }
+  
+
+  

@@ -1,0 +1,75 @@
+<div class="content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header d-flex justify-content-between">
+          <h4 class="card-title">Asignación de Profesores a Asignaturas</h4>
+        </div>
+        <div class="card-body">
+          <!-- Botón para mostrar asignaciones de profesores -->
+          <button class="custom-button" (click)="toggleAssignedSubjects()">Asignaciones de Profesores</button>
+
+          <!-- Mostrar select de asignatura siempre visible -->
+          <div class="filter-section">
+            <label for="subjectSelectInput">Seleccionar Asignatura:</label>
+            <input type="text" id="subjectSelectInput" [(ngModel)]="searchTerm" (input)="filterSubjects()" placeholder="Buscar asignatura por nombre" class="form-control">
+            <select id="subjectSelect" class="form-select" (change)="seleccionarAsignatura($event.target.value)">
+              <option value="" disabled selected>Selecciona una asignatura</option>
+              <option *ngFor="let subject of filteredSubjects" [value]="subject.idSub">
+                {{ subject.nameSub }} 
+              </option>
+            </select>
+          </div>
+
+          <!-- Mostrar tabla de profesores solo si una asignatura ha sido seleccionada -->
+          <div *ngIf="selectedSubject && !showAssignedSubjects">
+            <h5><strong>Profesores para la asignatura "{{ selectedSubject.nameSub }}"</strong></h5>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Profesor</th>
+                  <th>Especialidad</th>
+                  <th>Acción</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let professor of professors">
+                  <td>{{ professor.professor.nameProf }}</td>
+                  <td>{{ professor.professor.spec }}</td>
+                  <td>
+                    <button class="custom-button" (click)="asignarProfesor(professor.id)">Asignar</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Mostrar asignaciones de profesores cuando se hace clic en el botón -->
+          <div *ngIf="showAssignedSubjects">
+            <h5><strong>Asignaciones de Profesores</strong></h5>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Profesor</th>
+                  <th>Asignatura</th>
+                  <th>Acción</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let assignment of professorSubjectAssignments">
+                  <td>{{ assignment.idProf }}</td>
+                  <td>{{ assignment.idSub }}</td>
+                  <td>
+                    <button class="custom-button" (click)="eliminarAsignacion(assignment.idProfSub)">
+                      Eliminar
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

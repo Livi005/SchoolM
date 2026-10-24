@@ -1,0 +1,42 @@
+<div class="wrapper">
+  <nav class="nav">
+    <div class="nav-menu" [ngClass]="{ 'responsive': isMenuResponsive }" id="navMenu">
+      <ul>
+        <li><a class="link active">Gestor Escolar</a></li>
+      </ul>
+    </div>
+    <div class="nav-menu-btn">
+      <i class="bx bx-menu" (click)="toggleMenu()"></i>
+    </div>
+  </nav>
+
+  <!-- Formulario de Inicio de Sesión -->
+  <div class="form-box">
+    <div class="login-container" id="login" [ngStyle]="loginStyles">
+      <div class="top">
+        <header>Login</header>
+      </div>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+       <div class ="input-box">
+        <input class="input-field" formControlName="username" placeholder="Usuario" [(ngModel)]="userData.userName" required>
+        <i class="bx bx-user"></i>
+      </div>
+      <div class ="input-box">
+        <input class="input-field" formControlName="password" placeholder="Contraseña" type="password" [(ngModel)]="userData.password" required>
+        <i class="bx bx-lock-alt"></i>
+      </div>
+        <div class="two-col">
+          <div class="one">
+            <input type="checkbox" id="login-check" [(ngModel)]="rememberMe">
+            <label for="login-check"> Recordarme</label>
+          </div>
+          <div class="two">
+            <label><a href="#">¿Olvidaste tu contraseña?</a></label>
+          </div>
+        </div>
+        <button type="submit" class="submit">Iniciar Sesión</button>
+      
+      </form>
+    </div>
+  </div>
+</div>

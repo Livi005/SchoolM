@@ -1,0 +1,12 @@
+<div class="app-container">
+  <ng-container *ngIf="isAuthenticated | async; else loginTemplate">
+    <router-outlet></router-outlet>
+  </ng-container>
+
+  <ng-template #loginTemplate>
+    <app-auth></app-auth>
+  </ng-template>
+</div>
+
+ 
+  

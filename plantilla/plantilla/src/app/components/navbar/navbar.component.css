@@ -1,0 +1,11 @@
+nav h2 {
+    font-size: 24px; /* Tamaño de la letra */
+    color: white; /* Color de la letra */
+    text-decoration: none; /* Elimina el subrayado */
+    font-weight: bold; /* Hace el texto más grueso */
+}
+nav
+{
+    text-align: center; /* Centra el contenido del navbar */
+    margin-top: 20px; /* Separación superior para el navbar */
+}

@@ -1,0 +1,103 @@
+<div class="content">
+  <div class="row">
+    <div class="container mt-4">
+      <h2>Gestión de Inventario de Medios</h2>
+      <button class="custom-butt" (click)="toggleModal()">Agregar Medio</button>
+
+      <!-- Modal para agregar medio -->
+      <div class="modal" [ngClass]="{ 'show': isModalVisible }" (click)="closeModal($event)">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Agregar Medio</h5>
+              <button type="button" class="close" (click)="toggleModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+              <form [formGroup]="medioForm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                  <label for="nameMean">Nombre</label>
+                  <input type="text" class="form-control" formControlName="nameMean" required />
+                </div>
+
+                <div class="form-group">
+                  <label for="state">Estado</label>
+                  <select class="form-control" formControlName="state">
+                    <option value="funcionando">Funcionando</option>
+                    <option value="enMantenimiento">En Mantenimiento</option>
+                    <option value="reemplazado">Reemplazado</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="type">Tipo</label>
+                  <input type="text" class="form-control" formControlName="type" required />
+                </div>
+
+                <button type="submit" class="btn btn-primary">Guardar</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tabla de medios -->
+      <table class="table mt-4">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Estado</th>
+            <th>Tipo</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let medio of medios">
+            <td>{{ medio.nameMean }}</td>
+            <td>{{ medio.state }}</td>
+            <td>{{ medio.type }}</td>
+            <td>
+              <button class="custom-butt" (click)="openEditModal(medio)">Editar</button>
+              <button class="custom-butt" (click)="deleteMedio(medio)">Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<!-- Modal para editar medio -->
+<div class="modal" [ngClass]="{ 'show': isEditModalVisible }" (click)="closeEditModal($event)">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Editar Medio</h5>
+        <button type="button" class="close" (click)="toggleEditModal()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="medioForm" (ngSubmit)="updateMedio()">
+          <div class="form-group">
+            <label for="nameMean">Nombre</label>
+            <input type="text" class="form-control" formControlName="nameMean" required />
+          </div>
+
+          <div class="form-group">
+            <label for="state">Estado</label>
+            <select class="form-control" formControlName="state">
+              <option value="funcionando">Funcionando</option>
+              <option value="enMantenimiento">En Mantenimiento</option>
+              <option value="reemplazado">Reemplazado</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="type">Tipo</label>
+            <input type="text" class="form-control" formControlName="type" required />
+          </div>
+
+          <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+

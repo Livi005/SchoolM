@@ -1,0 +1,94 @@
+<div class="content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header d-flex justify-content-between align-items-center">
+          <h3>Lista de Mantenimientos</h3>
+
+          <!-- Botón para abrir el modal -->
+          <button class="custom-button" (click)="openModal()">Agregar Mantenimiento</button>
+        </div>
+
+        <!-- Barra de búsqueda -->
+        <div class="search-bar mb-3 d-flex align-items-center">
+          <input
+            type="text"
+            id="globalSearch"
+            class="form-control"
+            placeholder="Buscar mantenimiento"
+            [(ngModel)]="globalSearchQuery"
+            (input)="updateDisplayMantenimientos()"
+          />
+          <i class="fa fa-search ml-2"></i>
+        </div>
+
+        <!-- Tabla de Mantenimientos -->
+<div class="table-responsive">
+  <table class="table">
+    <thead class="text-primary">
+      <tr>
+        <th>Fecha de Mantenimiento</th>
+        <th>ID Medio</th>
+        <th>Costo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let mantenimiento of mantenimientos">
+        <td>{{ mantenimiento.maintenanceDate }}</td>
+        <td>{{ mantenimiento.idTechMean !== 0 ? mantenimiento.idTechMean : mantenimiento.idAuxMean }}</td>
+        <td>{{ mantenimiento.cost | currency }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<!-- Modal para agregar mantenimiento -->
+<div class="modal" [ngClass]="{'show d-block': showModal}">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Agregar Mantenimiento</h5>
+        <button type="button" class="close" (click)="closeModal()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <!-- Fecha -->
+          <h6>Fecha</h6>
+          <div class="form-group">
+            <label>Fecha de Mantenimiento:</label>
+            <input type="date" class="form-control" [(ngModel)]="newMantenimiento.maintenanceDate" name="fecha">
+          </div>
+
+          <!-- ID -->
+          <h6>ID</h6>
+          <div class="form-group">
+            <label>ID del Medio:</label>
+            <input type="number" class="form-control" [(ngModel)]="newMantenimiento.idMean" name="idMedio">
+          </div>
+
+          <!-- Tipo -->
+          <h6>Tipo</h6>
+          <div class="form-group">
+            <label>Tipo de Medio:</label>
+            <select class="form-control" [(ngModel)]="newMantenimiento.typeOfMean" name="tipo" (change)="onTipoMedioChange()">
+              <option [value]="0">Tecnológico</option>
+              <option [value]="1">Auxiliar</option>
+            </select>
+          </div>
+
+          <!-- Costo -->
+          <h6>Costo</h6>
+          <div class="form-group">
+            <label>Costo:</label>
+            <input type="number" class="form-control" [(ngModel)]="newMantenimiento.cost" name="costo">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button class="custom-button" (click)="addMantenimiento()">Guardar</button>
+        <button class="custom-button" (click)="closeModal()">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>

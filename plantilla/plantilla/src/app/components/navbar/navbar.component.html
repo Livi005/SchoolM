@@ -1,0 +1,56 @@
+<nav class="navbar navbar-expand-lg navbar-absolute navbar-transparent">
+  <div class="container-fluid">
+    <div class="navbar-wrapper">
+      <div class="navbar-toggle d-inline">
+        <button class="navbar-toggler" type="button" (click)="sidebarToggle()">
+          <span class="navbar-toggler-bar bar1"></span>
+          <span class="navbar-toggler-bar bar2"></span>
+          <span class="navbar-toggler-bar bar3"></span>
+        </button>
+      </div>
+      <a class="navbar-brand" href="javascript:void(0)"> {{ getTitle() }} </a>
+    </div>
+
+    <div class="navbar-collapse" [ngbCollapse]="isCollapsed" id="navigation">
+      <ul class="navbar-nav ml-auto">
+        <!-- Botón de notificaciones -->
+        <li class="nav-item">
+          <a class="nav-link" href="javascript:void(0)" (click)="showAlert()">
+            <div class="notification d-none d-lg-block d-xl-block"></div>
+            <i class="tim-icons icon-bell-55"></i>
+            <p class="d-lg-none">Notificaciones</p>
+          </a>
+        </li>
+
+        <!-- Botón de cerrar sesión -->
+        <li class="nav-item">
+          <a class="nav-link" href="javascript:void(0)" (click)="logout()">
+            <i class="tim-icons icon-button-power"></i>
+            <p class="d-lg-none">Cerrar Sesión</p>
+          </a>
+        </li>
+        
+        <li class="separator d-lg-none"></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Alerta de notificaciones -->
+<ngb-alert
+  class="alert-with-icon"
+  data-notify="container"
+  [type]="'info'"
+  *ngIf="!staticAlertClosed2 && notifications.length > 0"
+  [dismissible]="false"
+>
+  <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close" (click)="closeAlert()">
+    <i class="tim-icons icon-simple-remove"></i>
+  </button>
+  <span class="tim-icons icon-bell-55" data-notify="icon"></span>
+  <span data-notify="message">
+    <ul>
+      <li *ngFor="let notification of notifications">{{ notification }}</li>
+    </ul>
+  </span>
+</ngb-alert>

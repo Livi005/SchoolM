@@ -1,0 +1,62 @@
+<div class="content">
+  <div class="row">
+    <div class="container mt-4">
+      <h2>Gestión de Estudiantes por Asignatura</h2>
+      <button class="custom-butt" (click)="toggleModal()">Agregar Estudiante a Asignatura</button>
+
+      <!-- Modal para agregar estudiante a asignatura -->
+      <div class="modal" [ngClass]="{ 'show': isModalVisible }" (click)="closeModal($event)">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Agregar Estudiante a Asignatura</h5>
+              <button type="button" class="close" (click)="toggleModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+              <form [formGroup]="studentSubjectForm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                  <label for="idStud">ID del Estudiante</label>
+                  <input type="number" class="form-control" formControlName="idStud" required />
+                </div>
+
+                <div class="form-group">
+                  <label for="idSub">ID de la Asignatura</label>
+                  <input type="number" class="form-control" formControlName="idSub" required />
+                </div>
+
+                <div class="form-group">
+                  <label for="njAbsents">Número de Ausencias</label>
+                  <input type="number" class="form-control" formControlName="njAbsents" required />
+                </div>
+
+                <button type="submit" class="btn btn-primary">Guardar</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tabla de estudiantes por asignatura -->
+      <table class="table mt-4">
+        <thead>
+          <tr>
+            <th>ID Estudiante</th>
+            <th>ID Asignatura</th>
+            <th>Ausencias</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let studentSubject of studentSubjects">
+            <td>{{ studentSubject.idStud }}</td>
+            <td>{{ studentSubject.idStudSub }}</td>
+            <td>{{ studentSubject.njAbsents }}</td>
+
+              <!-- Aquí irían las acciones si se añadieran, como editar o eliminar -->
+
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

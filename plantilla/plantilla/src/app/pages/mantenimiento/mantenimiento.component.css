@@ -1,0 +1,64 @@
+/* Ajuste del fondo del modal */
+.modal-content {
+  background-color: white; /* Asegura que el fondo del modal sea blanco */
+  color: black; /* Texto en negro para mejor visibilidad */
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Sombra para resaltar el modal */
+}
+
+/* Ajuste de color para los inputs dentro del modal */
+.modal .form-control {
+  color: black !important; /* Asegura que el texto dentro del input sea negro */
+  background-color: white !important; /* Fondo blanco en los inputs */
+  border: 1px solid #ccc; /* Agrega un borde más visible */
+}
+
+/* Ajusta el color de los labels */
+.modal label {
+  color: black; /* Asegura que los textos de los labels sean visibles */
+  font-weight: bold;
+}
+
+/* Botón de cierre del modal */
+.modal-header .close {
+  color: black; /* Asegura que el botón de cerrar sea visible */
+  opacity: 1;
+  font-size: 1.5rem;
+}
+
+.modal-header {
+  border-bottom: 1px solid #ddd;
+}
+
+/* Asegurar que el modal tenga buena visibilidad */
+.modal {
+  background: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+}
+
+/* Mejora en los botones */
+.custom-button {
+  background-color: #32325d; /* Color de fondo */
+  color: white; /* Texto en blanco */
+  border-radius: 5px;
+  padding: 10px 18px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.custom-button:hover {
+  background-color: #43457a;
+}
+
+.custom-button:active {
+  background-color: #212345;
+  transform: scale(0.98);
+}
+
+/* Ajuste del modal en pantallas pequeñas */
+@media (max-width: 767px) {
+  .modal-dialog {
+    margin: 1rem;
+    width: 90%;
+  }
+}

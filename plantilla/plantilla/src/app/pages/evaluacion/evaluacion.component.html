@@ -1,0 +1,57 @@
+<div class="content">
+  <div class="row">
+    <div class="container mt-4">
+      <h2>Gestión de Calificaciones</h2>
+
+      <!-- Tabla de calificaciones -->
+      <div class="table-responsive mt-4">
+        <table class="table">
+          <thead class="text-primary">
+            <tr>
+              <th>Profesor</th>
+              <th>Asignatura</th>
+              <th>Curso</th>
+              <th>Acción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let calificacion of calificaciones">
+              <td>{{ calificacion.profName }}</td>
+              <td>{{ calificacion.subjectName }}</td>
+              <td>{{ calificacion.courseName }}</td>
+              <td>
+                <button class="custom-button" (click)="abrirModal(calificacion)">
+                  Asignar Nota
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p *ngIf="calificaciones.length === 0" class="text-danger">No hay datos disponibles.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Modal para asignar nota -->
+<div class="modal fade" [ngClass]="{'show d-block': showModal}" tabindex="-1" *ngIf="showModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Asignar Nota</h5>
+        <button type="button" class="close" (click)="cerrarModal()">×</button>
+      </div>
+      <div class="modal-body">
+        <p>Ingrese la nota para <strong>{{ selectedCalificacion?.profName }}</strong> en la asignatura <strong>{{ selectedCalificacion?.subjectName }}</strong></p>
+        <input type="number" class="form-control" [(ngModel)]="notaIngresada" placeholder="Ingrese la nota" />
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="custom-button" (click)="cerrarModal()">Cerrar</button>
+        <button type="button" class="custom-button" (click)="guardarNota()">Guardar Nota</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  

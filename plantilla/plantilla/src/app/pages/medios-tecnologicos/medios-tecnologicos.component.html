@@ -1,0 +1,91 @@
+<div class="content">
+  <div class="row">
+    <div class="container mt-4">
+      <h2>Gestión de Medios Tecnológicos</h2>
+      <button class="custom-butt" (click)="toggleModal()">Agregar Medio Tecnológico</button>
+
+      <!-- Modal para agregar medio tecnológico -->
+      <div class="modal" [ngClass]="{ 'show': isModalVisible }" (click)="closeModal($event)">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Agregar Medio Tecnológico</h5>
+              <button type="button" class="close" (click)="toggleModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+              <form [formGroup]="medioForm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                  <label for="nameMean">Nombre</label>
+                  <input type="text" class="form-control" formControlName="nameMean" required />
+                </div>
+
+                <div class="form-group">
+                  <label for="state">Estado</label>
+                  <select class="form-control" formControlName="state">
+                    <option value="funcionando">Funcionando</option>
+                    <option value="Mantenimiento">En Mantenimiento</option>
+                    <option value="reemplazado">Reemplazado</option>
+                  </select>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Guardar</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal para editar medio tecnológico -->
+      <div class="modal" [ngClass]="{ 'show': isEditModalVisible }" (click)="closeEditModal($event)">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Editar Medio Tecnológico</h5>
+              <button type="button" class="close" (click)="toggleEditModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+              <form [formGroup]="medioForm" (ngSubmit)="updateMedio()">
+                <div class="form-group">
+                  <label for="nameMean">Nombre</label>
+                  <input type="text" class="form-control" formControlName="nameMean" required />
+                </div>
+
+                <div class="form-group">
+                  <label for="state">Estado</label>
+                  <select class="form-control" formControlName="state">
+                    <option value="funcionando">Funcionando</option>
+                    <option value="Mantenimiento">En Mantenimiento</option>
+                    <option value="reemplazado">Reemplazado</option>
+                  </select>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Actualizar</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tabla de medios tecnológicos -->
+      <table class="table mt-4">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let medio of medios">
+            <td>{{ medio.nameMean }}</td>
+            <td>{{ medio.state }}</td>
+            <td>
+              <button class="custom-butt" (click)="editMedio(medio)">Editar</button>
+              <button class="custom-butt" (click)="deleteMedio(medio)">Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

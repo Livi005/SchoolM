@@ -1,0 +1,41 @@
+
+<div class="content">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="card-title">Lista de Evaluaciones</h4>
+            <button class="custom-button" (click)="cargarEvaluaciones()">Actualizar Datos</button>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table tablesorter">
+                <thead class="text-primary">
+                  <tr>
+                    <th>Profesor</th>
+                    <th>Estudiante</th>
+                    <th>Curso</th>
+                    <th>Asignatura</th>
+                    <th>Evaluación</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let evaluacion of evaluaciones">
+                    <td>{{ evaluacion.professorName }}</td>
+                    <td>{{ evaluacion.studentName }}</td>
+                    <td>{{ evaluacion.courseName }}</td>
+                    <td>{{ evaluacion.subjectName }}</td>
+                    <td>{{ evaluacion.evaluation }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div *ngIf="evaluaciones.length === 0">
+              <p>No hay evaluaciones disponibles.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

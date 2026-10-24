@@ -1,0 +1,89 @@
+<div class="content">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <button class="custom-button" (click)="addAdministrator()">Agregar Administrador</button>
+          </div>
+          <div class="card-body">
+            <div class="form-group">
+              <label for="name">Nombre</label>
+              <input
+                type="text"
+                id="name"
+                class="form-control"
+                placeholder="Ingrese el nombre"
+                [(ngModel)]="newAdministrator.adminName"
+              />
+            </div>
+            <div class="form-group">
+              <label for="salary">Salario</label>
+              <input
+                type="number"
+                id="salary"
+                class="form-control"
+                placeholder="Ingrese el salario"
+                [(ngModel)]="newAdministrator.adminSalary"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Tabla para mostrar los administradores -->
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Nombre</th>
+                    <th>Salario</th>
+                    <th>Acciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let administrator of administrators">
+                    <td>
+                      <ng-container *ngIf="editingAdministrator?.id === administrator.id; else viewModeName">
+                        <input
+                          type="text"
+                          class="form-control"
+                          [(ngModel)]="editingAdministrator.administrator.adminName"
+                        />
+                      </ng-container>
+                      <ng-template #viewModeName>{{ administrator.administrator.adminName }}</ng-template>
+                    </td>
+                    <td>
+                      <ng-container *ngIf="editingAdministrator?.id === administrator.id; else viewModeSalary">
+                        <input
+                          type="number"
+                          class="form-control"
+                          [(ngModel)]="editingAdministrator.administrator.adminSalary"
+                        />
+                      </ng-container>
+                      <ng-template #viewModeSalary>{{ administrator.administrator.adminSalary }}</ng-template>
+                    </td>
+                    <td>
+                      <ng-container *ngIf="editingAdministrator?.id === administrator.id; else actionMode">
+                        <button class="custom-button" (click)="saveAdministrator()">Guardar</button>
+                        <button class="custom-button" (click)="cancelEdit()">Cancelar</button>
+                      </ng-container>
+                      <ng-template #actionMode>
+                        <button class="custom-button" (click)="editAdministrator(administrator)">Editar</button>
+                        <button class="custom-button" (click)="deleteAdministrator(administrator.id)">Eliminar</button>
+                      </ng-template>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

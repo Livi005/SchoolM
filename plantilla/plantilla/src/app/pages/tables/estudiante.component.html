@@ -1,0 +1,129 @@
+<div class="content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <button class="custom-button" (click)="openAddStudentModal()">Agregar Estudiante</button>
+          <h4 class="card-title">Estudiantes</h4>
+        </div>
+
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead class="text-primary">
+                <tr>
+                  <th>Nombre</th>
+                  <th>Edad</th>
+                  <th>Extracurriculares</th>
+                  <th>Curso</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let student of students">
+                  <td>
+                    <ng-container *ngIf="editingStudent?.id === student.id; else viewModeName">
+                      <input [(ngModel)]="editingStudent.student.nameStud" class="form-control" />
+                    </ng-container>
+                    <ng-template #viewModeName>{{ student.student.nameStud }}</ng-template>
+                  </td>
+                  <td>
+                    <ng-container *ngIf="editingStudent?.id === student.id; else viewModeAge">
+                      <input [(ngModel)]="editingStudent.student.age" class="form-control" type="number" />
+                    </ng-container>
+                    <ng-template #viewModeAge>{{ student.student.age }}</ng-template>
+                  </td>
+                  <td>{{ student.student.eActivity ? 'Sí' : 'No' }}</td>
+                  <td>
+                    <ng-container *ngIf="editingStudent?.id === student.id; else viewModeCourse">
+                      <input [(ngModel)]="editingStudent.idC" class="form-control" type="number" />
+                    </ng-container>
+                    <ng-template #viewModeCourse>{{ student.idc }}</ng-template>
+                  </td>
+                  <td>
+                    <ng-container *ngIf="editingStudent?.id === student.id; else actionMode">
+                      <button class="custom-button" (click)="saveStudent()">Guardar</button>
+                      <button class="custom-button" (click)="cancelEdit()">Cancelar</button>
+                    </ng-container>
+                    <ng-template #actionMode>
+                      <button class="custom-button" (click)="editStudent(student)">Editar</button>
+                      <button class="custom-button" (click)="deleteStudent(student.id)">Eliminar</button>
+                    </ng-template>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal para agregar estudiante -->
+  <div
+    class="modal"
+    tabindex="-1"
+    [ngClass]="{ 'show': isAddStudentModalOpen }"
+    style="display: block;"
+    *ngIf="isAddStudentModalOpen"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Agregar Estudiante</h5>
+          <button type="button" class="close" (click)="closeAddStudentModal()">
+            <span>&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form (ngSubmit)="addStudent()">
+            <div class="form-group">
+              <label for="studentName">Nombre:</label>
+              <input
+                type="text"
+                id="studentName"
+                class="form-control"
+                [(ngModel)]="newStudent.nameStud"
+                name="nameStud"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="studentAge">Edad:</label>
+              <input
+                type="number"
+                id="studentAge"
+                class="form-control"
+                [(ngModel)]="newStudent.age"
+                name="age"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="studentActivity">Extracurriculares:</label>
+              <input
+                type="checkbox"
+                id="studentActivity"
+                [(ngModel)]="newStudent.eActivity"
+                name="eActivity"
+              />
+            </div>
+            <div class="form-group">
+              <label for="studentCourse">Curso:</label>
+              <input
+                type="number"
+                id="studentCourse"
+                class="form-control"
+                [(ngModel)]="newStudent.idC"
+                name="idC"
+                required
+              />
+            </div>
+            <button type="submit" class="custom-button">Guardar</button>
+            <button type="button" class="custom-button" (click)="closeAddStudentModal()">Cancelar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

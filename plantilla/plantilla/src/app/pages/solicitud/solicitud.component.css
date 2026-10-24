@@ -1,0 +1,36 @@
+.custom-butto {
+  background-color: #32325d; /* Color de fondo */
+  color: white; /* Color del texto */
+  border: 1px solid #1e1f35; /* Borde */
+  border-radius: 5px; /* Bordes redondeados */
+  padding: 8px 16px; /* Espaciado interno */
+  font-size: 14px; /* Tamaño de la fuente */
+  cursor: pointer; /* Cambia el cursor al pasar el mouse */
+  transition: all 0.3s ease; /* Transición suave para efectos */
+  margin-bottom: 20px;
+}
+.custom-select option {
+  color: black;
+}
+.filter-section {
+  margin-bottom: 30px; /* Espacio adicional debajo del filtro */
+  display: flex;
+  gap: 20px; /* Espaciado entre los elementos del filtro */
+  align-items: center; /* Alinea verticalmente los elementos */
+  padding: 15px; /* Espaciado interno */
+  border-radius: 8px; /* Bordes redondeados */
+  }
+  
+  .filter-section label {
+    font-weight: bold;
+    margin-right: 10px; /* Espacio entre el label y el select */
+  }
+  
+  .filter-section .form-select {
+    width: 220px; /* Aumenta el ancho de los selectores */
+    padding: 8px;
+    border-radius: 5px; /* Bordes redondeados */
+    border: 1px solid #ccc; /* Borde sutil */
+    font-size: 14px;
+  }
+  

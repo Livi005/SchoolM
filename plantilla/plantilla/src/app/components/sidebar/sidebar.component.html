@@ -1,0 +1,26 @@
+
+<div class="logo">
+  <a class="simple-text logo-mini">
+    <div class="logo-img">
+      <img src="./assets/img/matcom.jpeg" />
+    </div>
+  </a>
+  <a class="simple-text logo-normal">
+    <div>
+      Opciones
+    </div>
+  </a>
+</div>
+<div class="sidebar-wrapper" >
+  <ul class="nav">
+    <li
+      routerLinkActive="active"
+      *ngFor="let menuItem of menuItems"
+      class="{{ menuItem.class }} nav-item">
+      <a [routerLink]="[menuItem.path]">
+        <i class="tim-icons  {{ menuItem.icon }}"></i>
+        <p>{{ menuItem.label}}</p>
+      </a>
+    </li>
+  </ul>
+</div>

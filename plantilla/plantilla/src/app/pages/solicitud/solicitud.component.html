@@ -1,0 +1,132 @@
+<div class="content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header d-flex justify-content-between">
+          <h4 class="card-title">Solicitud de Aulas y Medios</h4>
+          <button class="custom-butto" (click)="toggleMedios()">
+            {{ botonTexto }}
+          </button>
+        </div>
+        <div class="card-body">
+          <!-- Selector de Asignaturas -->
+          <div class="filter-section mb-3" *ngIf="mostrarMediosDisponibles">
+            <label for="subjectSelect">Asignatura:</label>
+            <select
+              id="subjectSelect"
+              class="form-select"
+              [(ngModel)]="selectedSubject"
+              (change)="onSubjectChange($event.target.value)"
+            >
+              <option value="" disabled [selected]="!result?.length">
+                {{ result?.length ? 'Seleccione una asignatura' : 'No hay asignaturas disponibles' }}
+              </option>
+              <option *ngFor="let entry of result" [value]="entry.subject">
+                {{ entry.subject }}
+              </option>
+            </select>
+          </div>
+
+          <!-- Mostrar Medios Disponibles -->
+          <div class="table-responsive" *ngIf="mostrarMediosDisponibles && selectedMedios && selectedMedios.length > 0">
+            <h4>Medios Disponibles para "{{ selectedSubject }}"</h4>
+            <table class="table tablesorter">
+              <thead class="text-primary">
+                <tr>
+                  <th>Medio</th>
+                  <th>Cantidad Disponible</th>
+                  <th>Cantidad a Reservar</th>
+                  <th>Acción</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let medio of selectedMedios">
+                  <td>{{ medio.medio }}</td>
+                  <td>{{ medio.cantidad }}</td>
+                  <td>
+                    <input
+                      type="number"
+                      class="form-control"
+                      [(ngModel)]="medio.cantidadReserva"
+                      [min]="1"
+                      [max]="medio.cantidad"
+                      placeholder="Ingrese cantidad"
+                    />
+                  </td>
+                  <td>
+                    <button class="custom-butto" (click)="reservarMedio(medio)">
+                      Reservar
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Mensaje si no hay medios disponibles -->
+          <div *ngIf="mostrarMediosDisponibles && selectedMedios && selectedMedios.length === 0">
+            <p>No hay medios disponibles para la asignatura seleccionada.</p>
+          </div>
+        </div>
+         <!-- Tabla de Medios Ocupados -->
+          <div class="table-responsive" *ngIf="mostrarMediosOcupados && selectedMedios && selectedMedios.length > 0">
+            
+            <div class="filter-section mb-3" *ngIf="mostrarMediosOcupados">
+              <label for="subjectSelect">Asignatura:</label>
+              <select
+                id="subjectSelect"
+                class="form-select"
+                [(ngModel)]="selectedSubject"
+                (change)="onSubjectChange($event.target.value)"
+              >
+                <option value="" disabled [selected]="!result?.length">
+                  {{ result?.length ? 'Seleccione una asignatura' : 'No hay asignaturas disponibles' }}
+                </option>
+                <option *ngFor="let entry of result" [value]="entry.subject">
+                  {{ entry.subject }}
+                </option>
+              </select>
+            </div>
+
+            <h4>Medios Ocupados para "{{ selectedSubject }}"</h4>
+            <table class="table tablesorter">
+              <thead class="text-primary">
+                <tr>
+                  <th>Medio</th>
+                  <th>Cantidad Disponible</th>
+                  <th>Cantidad a Liberar</th>
+                  <th>Acción</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let medio of selectedMedios">
+                  <td>{{ medio.medio }}</td>
+                  <td>{{ medio.cantidad }}</td>
+                  <td>
+                    <input
+                      type="number"
+                      class="form-control"
+                      [(ngModel)]="medio.cantidadReserva"
+                      [min]="1"
+                      [max]="medio.cantidad"
+                      placeholder="Ingrese cantidad"
+                    />
+                  </td>
+                  <td>
+                    <button class="custom-butto" (click)="liberarMedio(medio)">
+                      liberar
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div *ngIf="mostrarMediosDisponibles && selectedMedios && selectedMedios.length === 0">
+              <p>No hay medios ocupados para la asignatura seleccionada.</p>
+            </div>
+          </div>
+         
+        </div>
+    </div>
+  </div>
+
+ 

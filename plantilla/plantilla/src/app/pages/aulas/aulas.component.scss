@@ -1,0 +1,36 @@
+.custom-button {
+    background-color: #32325d; /* Color de fondo */
+    color: white; /* Color del texto */
+    border: 1px solid #1e1f35; /* Borde */
+    border-radius: 5px; /* Bordes redondeados */
+    padding: 8px 16px; /* Espaciado interno */
+    font-size: 14px; /* Tamaño de la fuente */
+    cursor: pointer; /* Cambia el cursor al pasar el mouse */
+    transition: all 0.3s ease; /* Transición suave para efectos */
+    margin-bottom: 20px;
+  }
+  
+  .custom-button:hover {
+    background-color: #43457a; /* Color más claro al pasar el mouse */
+    border-color: #2e2f50; /* Color del borde al pasar el mouse */
+  }
+  
+  .custom-button:active {
+    background-color: #212345; /* Color más oscuro al presionar */
+    transform: scale(0.98); /* Pequeño efecto de presión */
+  }
+  .modal {
+    background: rgba(0, 0, 0, 0.5);
+  }
+  
+  .modal-dialog {
+    margin-top: 10%;
+  }
+  
+  .modal-content {
+    border-radius: 10px;
+  }
+  .modal input.form-control {
+    color: black;
+  }
+  

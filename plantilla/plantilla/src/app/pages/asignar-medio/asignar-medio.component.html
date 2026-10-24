@@ -1,0 +1,71 @@
+<div class="content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header d-flex justify-content-between">
+          <h4 class="card-title">Asignación de medios a aulas</h4>
+        </div>
+        <div class="card-body">
+          <!-- Botón para mostrar medios asignados -->
+          <button class="custom-button" (click)="toggleAssignedMeans()">Medios Asignados</button>
+
+          <!-- Mostrar select de aula siempre visible -->
+          <div class="filter-section">
+            <label for="aulaSelect">Seleccionar Aula:</label>
+            <select id="aulaSelect" class="form-select" (change)="seleccionarAula($event.target.value)">
+              <option value="" disabled selected>Selecciona un aula</option>
+              <option *ngFor="let aula of aulas" [value]="aula.idClassR">
+                  {{ aula.location }} 
+              </option>
+            </select>
+          </div>
+
+          <!-- Mostrar tabla de medios solo si un aula ha sido seleccionada -->
+          <div *ngIf="selectedClassroom && !showAssignedMeans">
+            <h5><strong>Medios Tecnológicos para "{{ selectedClassroom.location }}"</strong></h5>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Medio</th>
+                  <th>Acción</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let medio of mediosDisponibles">
+                  <td>{{ medio.nameMean }}</td>
+                  <td>
+                    <button class="custom-button" (click)="asignarMedio(medio.idMean)">Asignar</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- Mostrar medios asignados cuando se hace clic en el botón -->
+          <div *ngIf="showAssignedMeans">
+            <h5><strong>Medios Asignados</strong></h5>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Medio</th>
+                  <th>Aula</th>
+                  <th>Acción</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let asignacion of assignedTechMeans">
+                  <td>{{ asignacion.techName }}</td>
+                  <td>{{ asignacion.idClassRoom }}</td>
+                  <td>
+                    <button class="custom-button" (click)="eliminarAsignacion(asignacion.idClassRoomTech)">
+                      Eliminar
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
