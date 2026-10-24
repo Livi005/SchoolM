@@ -1,0 +1,17 @@
+C:\Proyectos\Gestion-Escolar-main\ASP.Net-backend\SchoolManagement.Application\bin\Debug\net10.0\SchoolManagement.Application.deps.json
+C:\Proyectos\Gestion-Escolar-main\ASP.Net-backend\SchoolManagement.Application\bin\Debug\net10.0\SchoolManagement.Application.dll
+C:\Proyectos\Gestion-Escolar-main\ASP.Net-backend\SchoolManagement.Application\bin\Debug\net10.0\SchoolManagement.Application.pdb
+C:\Proyectos\Gestion-Escolar-main\ASP.Net-backend\SchoolManagement.Application\bin\Debug\net10.0\SchoolManagement.Domain.dll
+C:\Proyectos\Gestion-Escolar-main\ASP.Net-backend\SchoolManagement.Application\bin\Debug\net10.0\SchoolManagement.Infrastructure.dll
+C:\Proyectos\Gestion-Escolar-main\ASP.Net-backend\SchoolManagement.Application\bin\Debug\net10.0\SchoolManagement.Domain.pdb
+C:\Proyectos\Gestion-Escolar-main\ASP.Net-backend\SchoolManagement.Application\bin\Debug\net10.0\SchoolManagement.Infrastructure.pdb
+C:\Proyectos\Gestion-Escolar-main\ASP.Net-backend\SchoolManagement.Application\obj\Debug\net10.0\SchoolManagement.Application.csproj.AssemblyReference.cache
+C:\Proyectos\Gestion-Escolar-main\ASP.Net-backend\SchoolManagement.Application\obj\Debug\net10.0\SchoolManagement.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Proyectos\Gestion-Escolar-main\ASP.Net-backend\SchoolManagement.Application\obj\Debug\net10.0\SchoolManagement.Application.AssemblyInfoInputs.cache
+C:\Proyectos\Gestion-Escolar-main\ASP.Net-backend\SchoolManagement.Application\obj\Debug\net10.0\SchoolManagement.Application.AssemblyInfo.cs
+C:\Proyectos\Gestion-Escolar-main\ASP.Net-backend\SchoolManagement.Application\obj\Debug\net10.0\SchoolManagement.Application.csproj.CoreCompileInputs.cache
+C:\Proyectos\Gestion-Escolar-main\ASP.Net-backend\SchoolManagement.Application\obj\Debug\net10.0\SchoolMa.1175F4A4.Up2Date
+C:\Proyectos\Gestion-Escolar-main\ASP.Net-backend\SchoolManagement.Application\obj\Debug\net10.0\SchoolManagement.Application.dll
+C:\Proyectos\Gestion-Escolar-main\ASP.Net-backend\SchoolManagement.Application\obj\Debug\net10.0\refint\SchoolManagement.Application.dll
+C:\Proyectos\Gestion-Escolar-main\ASP.Net-backend\SchoolManagement.Application\obj\Debug\net10.0\SchoolManagement.Application.pdb
+C:\Proyectos\Gestion-Escolar-main\ASP.Net-backend\SchoolManagement.Application\obj\Debug\net10.0\ref\SchoolManagement.Application.dll

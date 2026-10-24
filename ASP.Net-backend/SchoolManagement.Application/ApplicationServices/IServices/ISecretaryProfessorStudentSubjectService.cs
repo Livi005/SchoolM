@@ -1,0 +1,9 @@
+﻿using SchoolManagement.Application.ApplicationServices.Maps_Dto.SecretaryProfessorStudentSubject;
+using SchoolManagement.Application.Common;
+
+namespace SchoolManagement.Application.ApplicationServices.IServices;
+
+public interface ISecretaryProfessorStudentSubjectService
+    : IBaseService<SecretaryProfessorStudentSubjectDto, SecretaryProfessorStudentSubjectResponseDto>
+{
+}

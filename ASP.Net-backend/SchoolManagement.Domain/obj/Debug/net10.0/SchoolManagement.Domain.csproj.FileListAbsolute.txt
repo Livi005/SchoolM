@@ -1,0 +1,11 @@
+C:\Proyectos\Gestion-Escolar-main\ASP.Net-backend\SchoolManagement.Domain\bin\Debug\net10.0\SchoolManagement.Domain.deps.json
+C:\Proyectos\Gestion-Escolar-main\ASP.Net-backend\SchoolManagement.Domain\bin\Debug\net10.0\SchoolManagement.Domain.dll
+C:\Proyectos\Gestion-Escolar-main\ASP.Net-backend\SchoolManagement.Domain\bin\Debug\net10.0\SchoolManagement.Domain.pdb
+C:\Proyectos\Gestion-Escolar-main\ASP.Net-backend\SchoolManagement.Domain\obj\Debug\net10.0\SchoolManagement.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Proyectos\Gestion-Escolar-main\ASP.Net-backend\SchoolManagement.Domain\obj\Debug\net10.0\SchoolManagement.Domain.AssemblyInfoInputs.cache
+C:\Proyectos\Gestion-Escolar-main\ASP.Net-backend\SchoolManagement.Domain\obj\Debug\net10.0\SchoolManagement.Domain.AssemblyInfo.cs
+C:\Proyectos\Gestion-Escolar-main\ASP.Net-backend\SchoolManagement.Domain\obj\Debug\net10.0\SchoolManagement.Domain.csproj.CoreCompileInputs.cache
+C:\Proyectos\Gestion-Escolar-main\ASP.Net-backend\SchoolManagement.Domain\obj\Debug\net10.0\SchoolManagement.Domain.dll
+C:\Proyectos\Gestion-Escolar-main\ASP.Net-backend\SchoolManagement.Domain\obj\Debug\net10.0\refint\SchoolManagement.Domain.dll
+C:\Proyectos\Gestion-Escolar-main\ASP.Net-backend\SchoolManagement.Domain\obj\Debug\net10.0\SchoolManagement.Domain.pdb
+C:\Proyectos\Gestion-Escolar-main\ASP.Net-backend\SchoolManagement.Domain\obj\Debug\net10.0\ref\SchoolManagement.Domain.dll
